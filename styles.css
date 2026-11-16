@@ -301,3 +301,68 @@
 @media(max-width:760px){
  .section.company{padding-bottom:calc(14.65vw + 28px)}
 }
+
+/* Photo planning placeholders: preserve the existing responsive slot sizes. */
+.photo{background:#e7e7e7;background-image:none;border:1px solid #d5d5d5;color:#555;}
+.photo span{background:transparent;padding:12px;line-height:1.65;overflow-wrap:anywhere;}
+
+/* Real photography: focal points stay inside existing PC/SP photo frames. */
+.photo.real-photo{overflow:hidden;background:#e7e7e7;padding:0;}
+.photo.real-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+
+/* President portrait: closer crop, centered on the face and upper body. */
+.message-grid .portrait.real-photo>img{transform:scale(1.6);transform-origin:43% 32%;}
+
+/* Keep review questions readable directly beneath generated images. */
+.review-photo{margin:0;min-width:0;align-self:start;}
+.review-photo figcaption{color:#c62828;font-size:clamp(12px,1vw,16px);line-height:1.75;margin-top:10px;overflow-wrap:anywhere;text-align:left;}
+@media(max-width:760px){.review-photo figcaption{font-size:13px;line-height:1.7;margin-top:8px;}}
+
+/* Community illustration */
+.community .two-column{align-items:center}
+.community-art{width:100%;max-width:560px;margin:0 auto}
+.community-art img{display:block;width:100%;height:auto;object-fit:contain}
+@media(max-width:767px){.community-art{max-width:390px}.community .two-column{gap:28px}}
+
+/* Community: continuous illustration fading beneath the copy */
+#community .two-column{position:relative;isolation:isolate;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center;overflow:hidden;min-height:clamp(390px,36vw,620px);padding:clamp(32px,4vw,64px);margin-top:32px;background:#fff}
+#community .community-art{position:absolute;inset:0;z-index:-2;width:100%;height:100%;max-width:none;margin:0}
+#community .community-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 58%}
+#community .two-column::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 25%,rgba(255,255,255,.3) 43%,rgba(255,255,255,.86) 57%,rgba(255,255,255,.94) 100%);pointer-events:none}
+#community .two-column>div:last-child{grid-column:2;position:relative;min-width:0;width:100%;max-width:none;margin:0;padding:0 0 0 24px;background:transparent;text-align:left}
+#community .two-column h3{font-size:clamp(20px,1.65vw,28px);line-height:1.65;margin:0 0 20px;color:var(--olive)}
+#community .community-break{display:block}
+#community .two-column p{font-size:clamp(15px,1.15vw,20px);line-height:1.9;margin:0 0 14px}
+#community .two-column p:last-child{margin-bottom:0}
+#community>.container>.section-title{margin-bottom:0}
+@media(max-width:767px){
+ #community .two-column{display:block;min-height:0;padding:0 20px 28px;margin-top:24px}
+ #community .community-art{position:relative;inset:auto;z-index:-2;width:calc(100% + 40px);height:auto;margin:0 -20px}
+ #community .community-art img{height:auto;object-fit:contain}
+ #community .two-column::before{background:linear-gradient(180deg,transparent 0%,transparent 25%,rgba(255,255,255,.6) 40%,rgba(255,255,255,.95) 54%,#fff 68%)}
+ #community .two-column>div:last-child{padding:0;margin-top:-24px}
+ #community .two-column h3{font-size:21px;margin-bottom:14px}
+ #community .two-column p{font-size:16px;line-height:1.85}
+ #community .community-break{display:none}
+}
+
+/* Keep the entire group before the fade; preserve the panoramic artwork. */
+@media(min-width:768px){
+ #community .two-column{grid-template-columns:53% 47%;min-height:0;padding:0;background:#faf3e6}
+ #community .community-art{position:relative;inset:auto;grid-area:1 / 1 / 2 / 3;align-self:center;height:auto}
+ #community .community-art img{height:auto;object-fit:contain;object-position:center}
+ #community .two-column::before{background:linear-gradient(90deg,transparent 0%,transparent 50%,rgba(255,255,255,.6) 56%,rgba(255,255,255,.9) 64%,rgba(255,255,255,.94) 100%)}
+ #community .two-column>div:last-child{grid-area:1 / 2 / 2 / 3;padding:clamp(18px,2.2vw,36px);align-self:center}
+ #community .two-column h3{font-size:clamp(19px,1.45vw,26px);line-height:1.6;margin-bottom:16px}
+ #community .two-column p{font-size:clamp(14px,1.05vw,18px);line-height:1.85}
+}
+@media(max-width:767px){
+ #community .community-art{aspect-ratio:1.55;overflow:hidden}
+ #community .community-art img{width:200%;max-width:none;height:auto}
+ #community .two-column::before{background:linear-gradient(180deg,transparent 0%,transparent 36%,rgba(255,255,255,.75) 49%,#fff 58%)}
+ #community .two-column>div:last-child{margin-top:0}
+}
+
+/* Align privacy consent checkbox with its label. */
+.consent{align-items:center;gap:8px}
+.consent input[type="checkbox"]{margin:0;flex:0 0 18px}

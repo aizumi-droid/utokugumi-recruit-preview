@@ -285,7 +285,7 @@
  .company-facts>div{grid-template-columns:112px minmax(0,1fr);padding:12px 0;gap:16px;align-items:center}
  .company-facts>div:first-child{padding-top:12px}
  .company-source{display:inline-block;width:calc(100% - 220px);vertical-align:middle;margin:18px 0 0}
- .company-return{display:inline-block;width:210px;vertical-align:middle;text-align:right;margin:18px 0 0}
+ .company-return{display:block;width:210px;text-align:right;margin:18px 0 0 auto}
 }
 
 /* Share one section-sized gap across the adjacent white sections. */
@@ -366,3 +366,24 @@
 /* Align privacy consent checkbox with its label. */
 .consent{align-items:center;gap:8px}
 .consent input[type="checkbox"]{margin:0;flex:0 0 18px}
+
+/* Mobile community: separate artwork and copy with consistent breathing room. */
+@media(max-width:767px){
+ #community .two-column{padding:0;margin-top:28px;overflow:visible}
+ #community .community-art{width:100%;margin:0;aspect-ratio:1.55;position:relative;z-index:0}
+ #community .two-column::before{display:none}
+ #community .two-column>div:last-child{margin-top:24px;padding:0}
+ #community .two-column h3{margin-bottom:18px}
+ #community .two-column p{margin-bottom:18px}
+}
+
+/* Interview portraits lead each card, with consistent space before the copy. */
+.interview-card .person{display:flex;flex-direction:column;align-items:stretch;gap:22px;margin-bottom:24px}
+.interview-card .person .photo{width:100%;aspect-ratio:3/2;flex-shrink:0}
+.interview-card .person>div:last-child{min-width:0}
+.interview-card .person p{margin:6px 0 0}
+@media(max-width:760px){
+ .interview-card .person{gap:18px;margin-bottom:22px}
+ .interview-card .person h3{font-size:18px;line-height:1.65}
+ .interview-card .person p{font-size:14px}
+}
